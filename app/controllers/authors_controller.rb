@@ -3,8 +3,17 @@ class AuthorsController < ApplicationController
 
   # GET /authors
   def index
-    @authors = Author.all
 
+    Author.create({name: "Joao Silva"})
+    Author.create({name: "Paulo Coelho"})
+    Author.create({name: "Celso de Araujo"})
+    Author.create({name: "Guimaraes"})
+    Author.create({name: "Joao Silva Neto"})
+    Author.create({name: "Joao Neto"})
+    
+    Author.create({name: "Celso de Araujo"})
+    
+    @authors = Author.order("id desc").all()
     render json: @authors
   end
 
@@ -46,6 +55,6 @@ class AuthorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def author_params
-      params.require(:author).permit(:name, :name_formated)
+      params.require(:author).permit(:name)
     end
 end
