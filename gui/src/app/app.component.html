@@ -1,0 +1,24 @@
+<div class="container">
+  <form todoForm="ngForm" (submit)="autorSubmit(form.value); form.resetForm()">
+    <div class="form-group">
+      <h1 class="text-center ">Autores</h1>
+      <div class="input-group-prepend">
+        <input type="text" #autor class="form-control" placeholder="Nome" name="autor" ngModel>
+        <span class="input-group-text" (click)="autorSubmit(form.value)">
+          <i class="material-icons">+</i></span>
+      </div>
+    </div>
+  </form>
+</div>
+<div>
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th>Formatado</th>
+    </tr>
+    <tr *ng-repeat="let row of all">
+      <td>{{row.name}}</td>
+      <td>{{row.name_formated}}</td>
+    </tr>
+  </table>
+</div>

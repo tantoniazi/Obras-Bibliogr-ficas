@@ -3,7 +3,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors
   def index
-
+    
     Author.create({name: "Joao Silva"})
     Author.create({name: "Paulo Coelho"})
     Author.create({name: "Celso de Araujo"})
@@ -12,8 +12,7 @@ class AuthorsController < ApplicationController
     Author.create({name: "Joao Neto"})
     
     Author.create({name: "Celso de Araujo"})
-    
-    @authors = Author.order("id desc").all()
+    @authors = Author.paginate(page: params[:page])
     render json: @authors
   end
 
