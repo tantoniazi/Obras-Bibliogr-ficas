@@ -30,12 +30,6 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
   end
 
 
-
-  test "deletar autor" do
-    assert_difference('Author.count', -1) do
-      delete author_url(@author), as: :json
-    end
-
     assert_response 204
   end
 end

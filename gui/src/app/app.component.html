@@ -1,11 +1,10 @@
 <div class="container">
-  <form todoForm="ngForm" (submit)="autorSubmit(form.value); form.resetForm()">
+  <form form="ngForm" (submit)="autorSubmit(form.value);">
     <div class="form-group">
       <h1 class="text-center ">Autores</h1>
       <div class="input-group-prepend">
-        <input type="text" #autor class="form-control" placeholder="Nome" name="autor" ngModel>
-        <span class="input-group-text" (click)="autorSubmit(form.value)">
-          <i class="material-icons">+</i></span>
+        <input type="text" placeholder="Nome" name="autor" ngModel>
+        <button type="submit">Salvar</button>
       </div>
     </div>
   </form>
@@ -16,8 +15,8 @@
       <th>Nome</th>
       <th>Formatado</th>
     </tr>
-    <tr *ng-repeat="let row of all">
-      <td>{{row.name}}</td>
+    <tr *ngFor="let row of all | async">
+      <td>{{row.nome}}</td>
       <td>{{row.name_formated}}</td>
     </tr>
   </table>
